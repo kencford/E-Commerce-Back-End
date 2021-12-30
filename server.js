@@ -8,9 +8,11 @@ const sequelize = require('./config/connection');
 //******************************* */
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
+
+//essential for getting individual record ... specifying id
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
@@ -25,6 +27,6 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 //******************** */
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}!`);
-});
+// app.listen(PORT, () => {
+//   console.log(`App listening on port ${PORT}!`);
+// });
