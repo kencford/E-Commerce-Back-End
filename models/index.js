@@ -21,18 +21,17 @@ Category.hasMany(
 
 // Products belongToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
-  through: 'ProductTag',
+  through: ProductTag,
   // foreignKey: 'objectId', // replaces `productId`
   // otherKey: 'typeId' // replaces `categoryId`
-  foreignKey: 'productId', // replaces `productId`
-  otherKey: 'tagId' // replaces `categoryId`
+  foreignKey: 'product_id', // replaces `productId`
 });
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
   through: 'ProductTag',
-  foreignKey: 'tagId',
-  otherKey: 'productId'
+  foreignKey: 'tag_id'
+  // otherKey: 'productId'
   })
 
 
